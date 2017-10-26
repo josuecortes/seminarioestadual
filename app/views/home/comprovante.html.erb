@@ -1,0 +1,43 @@
+<div class="container" id="box">
+	<div class="row well">
+		<center>
+			<h4><b>COMPROVANTE DE INSCRIÇÃO</b></h4>
+			<h6><b>I SEMINÁRIO ESTADUAL INCLUSIVO</b></h6>
+
+			
+    </center>
+
+    <div class="row">
+    	<div class="col-md-12"><span class="pull-right"><b>INSCRIÇÃO Nº: </b><%= @inscription.id %></span></div>
+    </div>
+
+    <div class="row">
+    	<div class="col-md-8"><b>NOME: </b><%= @inscription.nome %></div>
+    	<div class="col-md-4"><b>CPF: </b><%= @inscription.cpf %></div>
+    </div>
+
+    <div class="row">
+    	<div class="col-md-12"><b>RESPONSÁVEL PELA INSCRIÇÃO: </b><%= @inscription.responsavel %></div>
+    </div>
+
+    <div class="row">
+    	<div class="col-md-12"><b>DATA: </b><%= @inscription.created_at.strftime("%d/%m/%Y %H:%M") %></div>
+    </div>
+
+    <div class="row">
+    	<div class="col-md-12"><span class="pull-right"><b>Gerado em: </b><%= Time.now.strftime("%d/%m/%Y %H:%M") %></span></div>
+    </div>
+
+    <center>
+      <button class="btn btn-primary hidden-print" onclick="myFunction()"><span class="fa fa-print" aria-hidden="true"></span> Imprimir</button>
+    </center>
+        
+	</div>
+</div>
+
+
+<script type="text/javascript">
+  function myFunction() {
+      window.print();
+  }
+</script>

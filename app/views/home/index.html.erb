@@ -1,0 +1,153 @@
+<section clas="main-container">
+  <div class="container">
+
+  		
+  		<nav class="navbar navbar-default navbar-fixed-top">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#"><span class="header-motto"> SEED </span></a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      
+			      
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><a href="/users/sign_in"><i class="fa fa-lock"></i><b class="header-motto">Login</b></a></li>
+			        
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+			
+			<br/>
+
+      <div class="row">
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="header-content text-center">
+              <h1 class="header-title">I Seminário estadual inclusivo | seed</h1>
+              <h4 class="header-motto">Dias <b>22</b> e <b>23</b> de Novembro de 2017 no <b>Teatro das Bacabeiras</b></h4>
+          </div>
+      </div>
+      </div>
+      <div class="row">
+
+          <%= flash_message %>
+
+          <div class="col-md-8">
+              <div class="form-block">
+                <h2>Cadastre-se</h2>
+                <div class="form">
+                  <%= form_for(@inscription, url: :home_salvar_inscricao, method: :post, local: true) do |form| %>
+
+                      <% if @inscription.errors.any? %>
+                        <div class="text-danger" id="error_explanation">
+                          <h4 class="text-danger">Corrija os erros abaixo:</h4>
+
+                          <ul>
+                          <% @inscription.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                          <% end %>
+                          </ul>
+                        </div>
+                      <% end %>
+
+
+                      <div class="field form-group">
+                        <%= form.text_field :nome, id: :inscription_nome, :class=>"form-control", :placeholder=>"Nome", :required=>true %>
+                      </div>
+
+                      <div class="row">
+                        <div class="field form-group col-md-8">
+                          <%= form.text_field :endereco, id: :inscription_endereco, :class=>"form-control", :placeholder=>"Endereço", :required=>true %>
+                        </div>
+
+                        <div class="field form-group col-md-4">
+                          <%= form.text_field :bairro, id: :inscription_bairro, :class=>"form-control", :placeholder=>"Bairro", :required=>true %>
+                        </div>
+                      </div>
+
+                      <div class="field form-group">
+                        <%= form.text_field :local_trabalho, id: :inscription_local_trabalho, :class=>"form-control", :placeholder=>"Local de Trabalho", :required=>true %>
+                      </div>
+
+                      <div class="row">
+                        <div class="field form-group col-md-10">
+                          <%= form.text_field :municipio, id: :inscription_municipio, :class=>"form-control", :placeholder=>"Municipio", :required=>true %>
+                        </div>
+
+                        <div class="field form-group col-md-2">
+                          <%= form.text_field :uf, id: :inscription_uf, :class=>"form-control", :placeholder=>"UF", :required=>true %>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="field form-group col-md-6">
+                          <%= form.text_field :regime_juridico, id: :inscription_regime_juridico, :class=>"form-control", :placeholder=>"Regime Juridico", :required=>true %>
+                        </div>
+
+                        <div class="field form-group col-md-6">
+                          <%= form.text_field :cargo_funcao, id: :inscription_cargo_funcao, :class=>"form-control", :placeholder=>"Cargo/Função", :required=>true %>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="field form-group col-md-4">
+                          <%= form.text_field :rg, id: :inscription_rg, :class=>"form-control", :placeholder=>"RG", :required=>true %>
+                        </div>
+
+                        <div class="field form-group col-md-4">
+                          <%= form.text_field :cpf, id: :cpf, :class=>"cpf form-control", :placeholder=>"CPF", :required=>true %>
+                        </div>
+
+                        <div class="field form-group col-md-4">
+                          <%= form.text_field :contato, id: :contato, :class=>"phone_with_ddd form-control", :placeholder=>"Telefone de Contato", :required=>true %>
+                        </div>
+                      </div>
+
+                      <div class="field form-group">
+                        <%= form.text_field :email, id: :inscription_email, :class=>"form-control", :placeholder=>"E-mail", :required=>true %>
+                      </div>
+
+                      <div class="field form-group">
+                        <%= form.text_field :responsavel, id: :inscription_responsavel, :class=>"form-control", :placeholder=>"Respponsável pela Inscrição", :required=>true %>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-default custom-btn">Cadastrar</button>
+                  <% end %>
+                </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="form-block">
+                 <h2>Comprovante de Inscrição</h2>
+                 <div class="form">
+                  <form action="/home/comprovante">
+                      <div class="form-group">
+                          <input type="text_field" class="cpf form-control" id="cpf" placeholder="CPF" name="cpf" required>
+                      </div>
+                      <button type="submit" class="btn btn-default custom-btn">Buscar</button>
+                  </form>
+                 </div> 
+              </div>
+          </div>
+      </div>
+
+      <br/>
+      <br/>
+      
+    	<nav class="navbar navbar-default navbar-fixed-bottom">
+			  <div class="container">
+			    <h3 class="header-motto"><center>SEED - Secretaria de Estado da Educação do Amapá</center></h3>
+			  </div>
+			</nav>
+      
+  </div>
+</section>

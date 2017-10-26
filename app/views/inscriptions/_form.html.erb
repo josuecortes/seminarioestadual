@@ -1,0 +1,82 @@
+<%= form_with(model: inscription, local: true) do |form| %>
+  <% if inscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inscription.errors.count, "error") %> prohibited this inscription from being saved:</h2>
+
+      <ul>
+      <% inscription.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, id: :inscription_nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :endereco %>
+    <%= form.text_field :endereco, id: :inscription_endereco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro, id: :inscription_bairro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :local_trabalho %>
+    <%= form.text_field :local_trabalho, id: :inscription_local_trabalho %>
+  </div>
+
+  <div class="field">
+    <%= form.label :municipio %>
+    <%= form.text_field :municipio, id: :inscription_municipio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uf %>
+    <%= form.text_field :uf, id: :inscription_uf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :regime_juridico %>
+    <%= form.text_field :regime_juridico, id: :inscription_regime_juridico %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cargo_funcao %>
+    <%= form.text_field :cargo_funcao, id: :inscription_cargo_funcao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rg %>
+    <%= form.text_field :rg, id: :inscription_rg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf, id: :inscription_cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :inscription_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contato %>
+    <%= form.text_field :contato, id: :inscription_contato %>
+  </div>
+
+  <div class="field">
+    <%= form.label :responsavel %>
+    <%= form.text_field :responsavel, id: :inscription_responsavel %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
