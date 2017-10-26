@@ -17,3 +17,4 @@ if u.save!
 else
 	puts "Erro ao Criar Usuario Master"
 end
+
